@@ -36,11 +36,20 @@ namespace C__Basics_Session04
             #endregion
 
             #region Q05
-            //Write a method AddBonusPages(int pages) that adds 50 to pages. Call it with a variable
-            //int pages = 400; and print pages afterward. What do you expect to see, and why?
-            int pages = 400;
-            AddBonusPages(pages);
-            Console.WriteLine($"Pages after calling AddBonusPages: {pages}");//400 because the method modify copy of the value (pass by value)
+            ////Write a method AddBonusPages(int pages) that adds 50 to pages. Call it with a variable
+            ////int pages = 400; and print pages afterward. What do you expect to see, and why?
+            //int pages = 400;
+            //AddBonusPages(pages);
+            //Console.WriteLine($"Pages after calling AddBonusPages: {pages}");//400 because the method modify copy of the value (pass by value)
+            #endregion
+
+            #region Q06
+            //Write a method ApplyDiscount(double[] prices) that subtracts 5 from prices[0]. Call it
+            //with double[] prices = { 25.5, 40.0 }; and print prices[0] afterward.What do you expect to
+            //see, and why?
+            double[] prices = { 25.5, 40.0 };
+            ApplyDiscount(prices);
+            Console.WriteLine($"Price after calling ApplyDiscount: {prices[0]}");//20.5 because the method modify the array (pass by reference)
             #endregion
         }
         public static void PrintWelcomeMessage()
@@ -55,6 +64,10 @@ namespace C__Basics_Session04
         {
             pages += 50;
 
+        }
+        public static void ApplyDiscount(double[] prices)
+        {
+                        prices[0] -= 5;
         }
     }
 }
