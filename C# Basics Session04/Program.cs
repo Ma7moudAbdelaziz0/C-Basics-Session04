@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Reflection;
 using static System.Net.Mime.MediaTypeNames;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
@@ -86,11 +87,18 @@ namespace C__Basics_Session04
             #endregion
 
             #region Q10
-            //Write a method PrintBookInfo(string title, int pages = 300) where pages is optional. Call
-            //it once with only a title, and once passing both a title and pages.
-            string bookTitle = "Clean Code";
-            PrintBookInfo(bookTitle);
-            PrintBookInfo(bookTitle, 450);
+            ////Write a method PrintBookInfo(string title, int pages = 300) where pages is optional. Call
+            ////it once with only a title, and once passing both a title and pages.
+            //string bookTitle = "Clean Code";
+            //PrintBookInfo(bookTitle);
+            //PrintBookInfo(bookTitle, 450);
+            #endregion
+
+            #region Q11
+            //Using the PrintBookInfo method from the question above, call it by naming the
+            //parameters, passing pages before title
+            PrintBookInfo(pages: 650, title: "Clean Code");
+
             #endregion
         }
         public static void PrintWelcomeMessage()
@@ -136,5 +144,6 @@ namespace C__Basics_Session04
         {
             Console.WriteLine($"Book Title: {title}, Pages: {pages}");
         }
+
     }
 }
