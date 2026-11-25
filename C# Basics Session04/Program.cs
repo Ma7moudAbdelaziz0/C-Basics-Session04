@@ -53,9 +53,20 @@ namespace C__Basics_Session04
             #endregion
 
             #region Q07
-            int pages = 400;
-            AddBonusPagesByRef(ref pages);
-            Console.WriteLine($"Pages after calling AddBonusPages: {pages}");//450 because the method modify the original value (pass by reference)
+            ////Rewrite the method from question 5 as AddBonusPagesByRef(ref int pages) using ref.
+            ////all it and print pages afterward. How is the result different from question 5 ?
+            //int pages = 400;
+            //AddBonusPagesByRef(ref pages);
+            //Console.WriteLine($"Pages after calling AddBonusPages: {pages}");//450 because the method modify the original value (pass by reference)
+            #endregion
+
+            #region Q08
+            //Write a method ReplaceArray(ref double[] prices) that replaces prices entirely with a
+            //new array { 10.0, 12.5, 15.0 }.Call it with your prices array and print prices.Length
+            //afterward.
+            double[] prices = { 25.5, 40.0 };
+            ReplaceArray(ref prices);
+            Console.WriteLine($"Prices length after calling ReplaceArray: {prices.Length}");//3 because the method modify the original array (pass by reference)
             #endregion
         }
         public static void PrintWelcomeMessage()
@@ -66,19 +77,23 @@ namespace C__Basics_Session04
         {
             Console.WriteLine($"Book Title: {title}");
         }
-        public static void AddBonusPages( int pages)
+        public static void AddBonusPages(int pages)
         {
             pages += 50;
 
         }
         public static void ApplyDiscount(double[] prices)
         {
-                        prices[0] -= 5;
+            prices[0] -= 5;
         }
         public static void AddBonusPagesByRef(ref int pages)
         {
             pages += 50;
 
+        }
+        public static void ReplaceArray(ref double[] prices)
+        {
+            prices = new double[] { 10.0, 12.5, 15.0 };
         }
     }
 }
