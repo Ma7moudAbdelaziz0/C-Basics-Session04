@@ -44,12 +44,18 @@ namespace C__Basics_Session04
             #endregion
 
             #region Q06
-            //Write a method ApplyDiscount(double[] prices) that subtracts 5 from prices[0]. Call it
-            //with double[] prices = { 25.5, 40.0 }; and print prices[0] afterward.What do you expect to
-            //see, and why?
-            double[] prices = { 25.5, 40.0 };
-            ApplyDiscount(prices);
-            Console.WriteLine($"Price after calling ApplyDiscount: {prices[0]}");//20.5 because the method modify the array (pass by reference)
+            ////Write a method ApplyDiscount(double[] prices) that subtracts 5 from prices[0]. Call it
+            ////with double[] prices = { 25.5, 40.0 }; and print prices[0] afterward.What do you expect to
+            ////see, and why?
+            //double[] prices = { 25.5, 40.0 };
+            //ApplyDiscount(prices);
+            //Console.WriteLine($"Price after calling ApplyDiscount: {prices[0]}");//20.5 because the method modify the array (pass by reference)
+            #endregion
+
+            #region Q07
+            int pages = 400;
+            AddBonusPagesByRef(ref pages);
+            Console.WriteLine($"Pages after calling AddBonusPages: {pages}");//450 because the method modify the original value (pass by reference)
             #endregion
         }
         public static void PrintWelcomeMessage()
@@ -60,7 +66,7 @@ namespace C__Basics_Session04
         {
             Console.WriteLine($"Book Title: {title}");
         }
-        public static void AddBonusPages(int pages)
+        public static void AddBonusPages( int pages)
         {
             pages += 50;
 
@@ -68,6 +74,11 @@ namespace C__Basics_Session04
         public static void ApplyDiscount(double[] prices)
         {
                         prices[0] -= 5;
+        }
+        public static void AddBonusPagesByRef(ref int pages)
+        {
+            pages += 50;
+
         }
     }
 }
