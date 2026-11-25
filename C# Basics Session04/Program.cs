@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using static System.Net.Mime.MediaTypeNames;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace C__Basics_Session04
@@ -61,12 +62,27 @@ namespace C__Basics_Session04
             #endregion
 
             #region Q08
-            //Write a method ReplaceArray(ref double[] prices) that replaces prices entirely with a
-            //new array { 10.0, 12.5, 15.0 }.Call it with your prices array and print prices.Length
-            //afterward.
-            double[] prices = { 25.5, 40.0 };
-            ReplaceArray(ref prices);
-            Console.WriteLine($"Prices length after calling ReplaceArray: {prices.Length}");//3 because the method modify the original array (pass by reference)
+            ////Write a method ReplaceArray(ref double[] prices) that replaces prices entirely with a
+            ////new array { 10.0, 12.5, 15.0 }.Call it with your prices array and print prices.Length
+            ////afterward.
+            //double[] prices = { 25.5, 40.0 };
+            //ReplaceArray(ref prices);
+            //Console.WriteLine($"Prices length after calling ReplaceArray: {prices.Length}");//3 because the method modify the original array (pass by reference)
+            #endregion
+
+            #region Q09
+            //Write a method bool TryGetPrice(string title, out double price) that returns true and sets
+            // price to 25.5 if title is "Clean Code", otherwise returns false and sets price to 0.Call it
+            //and print the price if found
+            string bookTitle = "Clean Code";
+            if (TryGetPrice(bookTitle, out double price)==true)
+            {
+                Console.WriteLine($"Price of '{bookTitle}': {price}");
+            }
+            else
+            {
+                Console.WriteLine($"Price of '{bookTitle}' not found.");
+            }
             #endregion
         }
         public static void PrintWelcomeMessage()
@@ -94,6 +110,19 @@ namespace C__Basics_Session04
         public static void ReplaceArray(ref double[] prices)
         {
             prices = new double[] { 10.0, 12.5, 15.0 };
+        }
+        public static bool TryGetPrice(string title, out double price)
+        {
+            if (title == "Clean Code")
+            {
+                price = 25.5;
+                return true;
+            }
+            else
+            {
+                price = 0;
+                return false;
+            }
         }
     }
 }
