@@ -71,18 +71,26 @@ namespace C__Basics_Session04
             #endregion
 
             #region Q09
-            //Write a method bool TryGetPrice(string title, out double price) that returns true and sets
-            // price to 25.5 if title is "Clean Code", otherwise returns false and sets price to 0.Call it
-            //and print the price if found
+            ////Write a method bool TryGetPrice(string title, out double price) that returns true and sets
+            //// price to 25.5 if title is "Clean Code", otherwise returns false and sets price to 0.Call it
+            ////and print the price if found
+            //string bookTitle = "Clean Code";
+            //if (TryGetPrice(bookTitle, out double price)==true)
+            //{
+            //    Console.WriteLine($"Price of '{bookTitle}': {price}");
+            //}
+            //else
+            //{
+            //    Console.WriteLine($"Price of '{bookTitle}' not found.");
+            //}
+            #endregion
+
+            #region Q10
+            //Write a method PrintBookInfo(string title, int pages = 300) where pages is optional. Call
+            //it once with only a title, and once passing both a title and pages.
             string bookTitle = "Clean Code";
-            if (TryGetPrice(bookTitle, out double price)==true)
-            {
-                Console.WriteLine($"Price of '{bookTitle}': {price}");
-            }
-            else
-            {
-                Console.WriteLine($"Price of '{bookTitle}' not found.");
-            }
+            PrintBookInfo(bookTitle);
+            PrintBookInfo(bookTitle, 450);
             #endregion
         }
         public static void PrintWelcomeMessage()
@@ -123,6 +131,10 @@ namespace C__Basics_Session04
                 price = 0;
                 return false;
             }
+        }
+        public static void PrintBookInfo(string title, int pages = 300)
+        {
+            Console.WriteLine($"Book Title: {title}, Pages: {pages}");
         }
     }
 }
